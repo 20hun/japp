@@ -384,7 +384,7 @@ public String makeQuery(int page) {
 - ReplyPageCriteria 댓글 페이징 기준   
 - ReplyPageMaker 댓글 페이징  
 
-## 메서드 처리과정은 가장 앞의 기능 하나만 설명하겠습니다. 이하 모든 메서드들은 처리과정이 동일합니다.
+## 메서드 처리과정
 `요청 > 컨트롤러 > 서비스 > 서비스 구현 > DAO > DAO 구현 > Mybatis > DB > 컨트롤러 - DB 반환`
 
 > User Method  
