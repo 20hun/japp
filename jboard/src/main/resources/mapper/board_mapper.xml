@@ -9,31 +9,26 @@
 		order by b_num desc
 		limit #{pageStart}, #{perPageNum}
 	</select>
-
 	<select id="totalCount" resultType="java.lang.Integer">
 		select count(*)
 		from
 		board_info
 	</select>
-
 	<select id="boardRead" resultType="BoardVO">
 		select *
 		from board_info
 		where b_num = #{b_num}
 	</select>
-
 	<update id="countHit">
 		update board_info
 		set b_hit = b_hit+1
 		where b_num = #{b_num}
 	</update>
-
 	<insert id="boardWrite">
 		insert into board_info
 		(b_title, b_content, b_writer)
 		values(#{title}, #{content}, #{id})
 	</insert>
-
 	<update id="boardUpdate">
 		update board_info
 		set b_title = #{title},
@@ -41,13 +36,11 @@
 		where b_num = #{number}
 		and b_writer = #{writer}
 	</update>
-
 	<delete id="boardDelete">
 		delete from board_info
 		where b_num = #{number}
 		and b_writer = #{writer}
 	</delete>
-
 	<update id="countReply">
 		update board_info
 		set b_reply_count = (select count(b_num) from reply_info where b_num = #{b_num})
