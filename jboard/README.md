@@ -49,8 +49,8 @@
 ![](md_resources/jboardPackage.jpg)  
 
 ----------------------------------------------------------------------------
-## jboard 데이터베이스 모델링
-![](md_resources/jboard_model.jpg)  
+## jbaord 데이터베이스 모델링
+![](md_resources/jboard_model.jpg) 
 
 ----------------------------------------------------------------------------
 ## Front-End 주요 기능
@@ -388,7 +388,8 @@ public String makeQuery(int page) {
 `요청 > 컨트롤러 > 서비스 > 서비스 구현 > DAO > DAO 구현 > Mybatis > DB > 컨트롤러 - DB 반환`
 
 > User Method  
->> idDupCheck() 아이디 중복확인 
+  
+## idDupCheck() 아이디 중복확인   
 ~~~c
 // 요청 처리과정 
 // signValidation -> UserController -> UserService -> UserServiceImpl -> UserDao -> UserDaoImpl -> user_mapper(Mybatis, DB접속) -> UserController DB반환
@@ -479,60 +480,49 @@ public int idDupCheck(String checkId) throws Exception {
     where u_id = #{id}
 </select>
 ~~~
->> signUp() 회원가입  
+## signUp() 회원가입    
 ![](md_resources/signUp.gif)    
->> activateEamil() 이메일 활성화  
+## activateEamil() 이메일 활성화  
 ![](md_resources/activateEmail.gif)      
->> login() 로그인  
+## login() 로그인  
 ![](md_resources/login.gif)       
->> loginLatestTimeUpdate() 최근 로그인 시간 업데이트    
+## loginLatestTimeUpdate() 최근 로그인 시간 업데이트    
 ![](md_resources/latestLogin.gif)  
->> updateRecommendActivateTime() 추천 활성화 시간 업데이트  
-![](md_resources/recommendTime.gif)  
-
->> checkRecommendActivateTime() 추천 활성화 시간 조회  
+## updateRecommendActivateTime() 추천 활성화 시간 업데이트  
+![](md_resources/recommendTime.gif)   
 
 ----------------------------------------------------------------------------
 
 > Board Method  
->> listPageCriteria() 전체 게시글 가져오기    
-![](md_resources/boardList.gif)  
-
->> totalCount() 전체 게시글 수 가져오기  
-
->> boardRead() 게시글 내용 보기  
+## listPageCriteria() 전체 게시글 가져오기    
+![](md_resources/boardList.gif)   
+## boardRead() 게시글 내용 보기  
 ![](md_resources/boardRead.gif)    
->> countHit() 조회수 올리기  
+## countHit() 조회수 올리기  
 ![](md_resources/countHit.gif)     
->> boardWrite() 글쓰기  
+## boardWrite() 글쓰기  
 ![](md_resources/boardWrite.gif)  
->> boardUpdate() 글수정  
+## boardUpdate() 글수정  
 ![](md_resources/boardUpdate.gif)  
->> boardDelete() 글삭제  
+## boardDelete() 글삭제  
 ![](md_resources/boardDelete.gif)  
->> countReply() 댓글 수 세기  
+## countReply() 댓글 수 세기  
 ![](md_resources/countReply.gif)  
->> searchBoard() 검색결과 가져오기  
+## searchBoard() 검색결과 가져오기  
 ![](md_resources/search.gif)  
-
->> searchTotalCount() 검색결과 개수 가져오기  
-
->> countRecommend() 추천 수 올리기  
+## countRecommend() 추천 수 올리기  
 ![](md_resources/countRecommend.gif)  
 
 ----------------------------------------------------------------------------
 
 > Reply Method  
->> replyListPageCriteria() 전체 댓글 가져오기     
+## replyListPageCriteria() 전체 댓글 가져오기     
 ![](md_resources/replyList.gif)  
-
->> replyTotalCount() 전체 댓글 수 가져오기  
-
->> replyWrite() 댓글쓰기    
+## replyWrite() 댓글쓰기    
 ![](md_resources/replyWrite.gif)  
->> replyDelete() 댓글삭제  
+## replyDelete() 댓글삭제  
 ![](md_resources/replyDelete.gif)    
->> replyUpdtae() 댓글수정    
+## replyUpdtae() 댓글수정    
 ![](md_resources/replyUpdate.gif)  
 
 ----------------------------------------------------------------------------

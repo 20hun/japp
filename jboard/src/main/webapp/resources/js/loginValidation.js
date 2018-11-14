@@ -63,22 +63,14 @@ function validateLogin() {
 	}
 
 	// 모든 조건 만족시 AJAX 통신으로 form submit
-
-	// form.serialize(): form 데이터를 string 형식으로 나열
-	var formData = $("#login").serialize();
-
 	// AJAX: 비동기식 자바스크립트 XML(JSON)
+	// form.serialize(): form 데이터를 string 형식으로 나열
+	
+	var formData = $("#login").serialize();
 	$.ajax({
-		// url: 요청을 보낼 대상 URL
 		url : "loginForm/login",
-		// type: HTTP 통신의 종류 설정하는 값
-		// 기본 값: GET
 		type : "POST",
-		// data: 서버로 전송하는 값
-		// JSON.parse: string > json 변환
-		// JSON.stringify: json > string 변환
 		data : formData,
-		// success: AJAX 통신이 성공하면 호출되는 event
 		success : function(data) {
 			if (data != "X") {
 				if (data == "이메일 비활성화") {

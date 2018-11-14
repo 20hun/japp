@@ -9,21 +9,18 @@
 		order by b_num desc
 		limit #{pageStart}, #{perPageNum}
 	</select>
+	
 	<select id="totalCount" resultType="java.lang.Integer">
 		select count(*)
 		from
 		board_info
 	</select>
+	
 	<select id="boardRead" resultType="BoardVO">
 		select *
 		from board_info
 		where b_num = #{b_num}
 	</select>
-	<update id="countHit">
-		update board_info
-		set b_hit = b_hit+1
-		where b_num = #{b_num}
-	</update>
 	<insert id="boardWrite">
 		insert into board_info
 		(b_title, b_content, b_writer)
@@ -41,6 +38,12 @@
 		where b_num = #{number}
 		and b_writer = #{writer}
 	</delete>
+	
+	<update id="countHit">
+		update board_info
+		set b_hit = b_hit+1
+		where b_num = #{b_num}
+	</update>
 	<update id="countReply">
 		update board_info
 		set b_reply_count = (select count(b_num) from reply_info where b_num = #{b_num})
@@ -85,7 +88,8 @@
 	<update id="countRecommend">
 		update board_info set b_recommend = b_recommend+1
 		where b_num = #{b_num}
-		and now() > (select u_recommend_active_time from user_info where u_id = #{u_id});
+		and now() > (select u_recommend_active_time from
+		user_info where u_id = #{u_id});
 	</update>
 
 </mapper>

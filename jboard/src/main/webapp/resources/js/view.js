@@ -3,9 +3,7 @@ $(document).ready(function() {
 	// 추천하기
 	$("#recommendSubmit").click(function() {
 		if (confirm("추천을 하시겠습니까?")) {
-
 			var activeTime = new Date($("#u_recommend_active_time").val());
-
 			if (activeTime < new Date()) {
 				$("#recommend").submit();
 			} else {
@@ -16,7 +14,6 @@ $(document).ready(function() {
 					window.location = "recommend";
 				}
 			}
-
 		} else {
 			return;
 		}

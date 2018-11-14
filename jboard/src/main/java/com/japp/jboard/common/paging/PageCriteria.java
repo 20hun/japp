@@ -20,19 +20,16 @@ public class PageCriteria {
 	public int getPageStart() {
 		return (this.page - 1) * this.perPageNum;
 	}
-
 	// 최초 default 생성자
 	// 기본 객체 생성시 초기값을 지정한다(1페이지에 10개)
 	public PageCriteria() {
 		this.page = 1; // 사용자가 정의하지 않으면 1
 		this.perPageNum = 10; // 페이지당 10개씩 출력
 	}
-
 	// getter, setter
 	public int getPage() {
 		return page;
 	}
-
 	public void setPage(int page) {
 		// 시작 페이지는 1로 설정
 		if (page <= 0) {
@@ -40,13 +37,10 @@ public class PageCriteria {
 		} else {
 			this.page = page;
 		}
-
 	}
-
 	public int getPerPageNum() {
 		return perPageNum;
 	}
-
 	// 페이지당 설정, 100이상 넘어갈 수 없다
 	public void setPerPageNum(int perPageNum) {
 		if (perPageNum <= 0 || perPageNum > 100) {

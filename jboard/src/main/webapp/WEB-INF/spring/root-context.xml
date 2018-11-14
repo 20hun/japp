@@ -10,8 +10,8 @@
 		<property name="port" value="587" />
 		<!-- 주의! 개인정보 -->
 		<!-- 프로젝트 업로드 시에 아이디, 비밀번호 삭제 -->
-		<property name="username" value="Gmail 아이디" />
-		<property name="password" value="Gmail 비밀번호" />
+		<property name="username" value="구글 Gamil 아이디" />
+		<property name="password" value="비밀번호" />
 
 		<!-- email 요청시는 SMTP -->
 		<property name="javaMailProperties">

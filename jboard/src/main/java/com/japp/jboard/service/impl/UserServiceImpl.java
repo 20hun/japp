@@ -15,6 +15,7 @@ import com.japp.jboard.vo.UserVO;
 public class UserServiceImpl implements UserService {
 	@Autowired
 	private UserDao userDao;
+	
 	@Override
 	public int idDupCheck(String checkId) throws Exception {
 		int check = -2;

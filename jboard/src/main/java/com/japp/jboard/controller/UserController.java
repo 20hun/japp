@@ -47,12 +47,10 @@ public class UserController {
 	// paramId에 담기는 파라미터 id
 	@RequestMapping(value = "signUpForm/idDupCheck", produces = "application/text; charset=utf8")
 	public @ResponseBody String responseIdDupCheck(@RequestParam String paramId) throws Exception {
-
 		int result = -1;
 		String checkedId = "";
 		// 검색 후, 0이면 사용가능, 1이면 중복, -1이면 메서드 작동X, -2이면 SQL 작동X
 		result = userService.idDupCheck(paramId);
-
 		if (result == 0) {
 			checkedId = paramId;
 		} else if (result == 1) {
@@ -60,7 +58,6 @@ public class UserController {
 		} else {
 			checkedId = "";
 		}
-
 		return checkedId;
 	}
 
@@ -106,18 +103,14 @@ public class UserController {
 	// 이메일 인증 후, active_key 값 "0"으로 수정
 	@RequestMapping("emailActivate")
 	public String responseEmailActivate(@RequestParam HashMap<String, Object> params) throws Exception {
-
 		int result = -1;
-
 		// update 시 수정한 개수를 결과로 리턴, 0인 경우 인증실패, 1인 경우 인증성공, -1인 경우 메서드 작동x
 		result = userService.activateEmail(params);
-
 		if (result == 1) {
 			JOptionPane.showMessageDialog(null, "아이디 이용이 가능합니다");
 		} else {
 			JOptionPane.showMessageDialog(null, "이메일 인증 키가 소멸되었습니다");
 		}
-
 		return "redirect:index";
 	}
 
@@ -125,17 +118,13 @@ public class UserController {
 	// params에 담기는 파라미터: u_id, u_pwd
 	@RequestMapping(value = "loginForm/login", produces = "application/text; charset=utf8")
 	public @ResponseBody String jsonLogin(@RequestParam HashMap<String, Object> params, HttpSession session, HttpServletRequest request) throws Exception {
-
 		String result = "X";
-
 		if (session.getAttribute("login_session") != null) {
 			// 로그인 요청시, login_info 세션 값이 존재하면 삭제
 			session.removeAttribute("login_session");
 		}
-
 		// 로그인 시도
 		UserVO login_info = userService.login(params);
-
 		// 로그인 성공시
 		if (login_info != null) {
 			// 로그인된 아이디가 활성화 상태인 경우(u_active_state = 1)
@@ -150,12 +139,10 @@ public class UserController {
 				result = "이메일 비활성화";
 			}
 		}
-
 		// 로그인 유저 아이피 가져오기
 		ClientIP cipAddr = new ClientIP();
 		System.out.println("Login Client IP Address: " + cipAddr.getClientIPAddr(request));
 		System.out.println("Session Valid Time: " + (session.getMaxInactiveInterval()+" seconds" ));
-
 		// "X", "아이디", "이메일 비활성화" 3가지 경우의 수 반환
 		return result;
 	}
@@ -163,7 +150,6 @@ public class UserController {
 	// 로그아웃 요청
 	@RequestMapping("logOut")
 	public String responseLogOut(HttpSession session) {
-
 		// 전체 세션 삭제
 		session.invalidate();
 		// 특정 세션 삭제
